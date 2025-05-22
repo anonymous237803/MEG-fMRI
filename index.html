@@ -113,6 +113,30 @@
     }
   </style>
 
+  <style>
+    .slide-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .slide-content video {
+      width: 80%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .subtitle {
+      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  </style>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -176,6 +200,276 @@
     </div>
   </div>
 </section>
+
+<!-- Teaser. -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <!-- <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3", style="margin-top: 60px;">Model Architecture</h2>
+    </div> -->
+    <div class="hero-body">
+      <img id="teaser" src="./static/imgs/teaser.png"
+                type="image/jpg">
+      </img>
+      <h2 class="subtitle has-text-left">
+        Our work integrates the millisecond-level temporal precision of MEG with the millimeter-scale spatial specificity of fMRI to reconstruct cortical source activity at a high spatiotemporal resolution.
+      </h2>
+    </div>
+  </div>
+</section>
+<!--/ Teaser. -->
+
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Current non-invasive neuroimaging techniques trade off between spatial resolution and temporal resolution. While magnetoencephalography (MEG) can capture rapid neural dynamics and functional magnetic resonance imaging (fMRI) can spatially localize brain activity, a unified picture that preserves both high resolutions remains elusive. We introduce a transformer-based encoding framework that combines MEG and fMRI from two naturalistic speech comprehension experiments with identical stimuli to estimate latent cortical source responses with high spatio-temporal resolution. Participants listened passively to more than 7h of narrative stories while whole-head MEG was recorded; each also completed a 3T fMRI scan on repeated presentations of one anchor story. For the remaining stories, we projected an open fMRI dataset collected on identical stimuli onto each participant's cortical surface using surface-based alignment and vertex-wise ridge regression. We built a transformer-based encoding model whose latent layer represents our estimates of reconstructed cortical sources. A sliding-window self-attention enables the model to leverage the preceding 10s of stimulus features. The network is trained end-to-end with a joint MEG and fMRI loss. On held-out stories, our model performs on par with single-modality regression-based methods while simultaneously offering high spatial and temporal resolution. Simulation experiments show more accurate source recovery than the classical minimum norm estimation approach. Training on real data reveals word-locked source activities and cortical dynamics of word surprisal effect. By integrating the power of large naturalistic experiments, MEG, and fMRI with a transformer-based encoding model, we propose a practical route to millisecond-and-millimeter brain mapping.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<!--/ Abstract. -->
+
+
+<!--/ Model Architecture. -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3", style="margin-top: 60px;">Model Architecture</h2>
+    </div>
+    <div class="hero-body">
+      <h2 class="content has-text-left">
+        Feature streams enter the network and traverse two transformer layers before being projected into the cortical source space by a source projection layer. The MEG head generates predicted sensor signals by multiplying source activity with a pre-computed lead-field matrix (dashed arrows denote that this mapping is not learned). The fMRI head produces predicted BOLD responses by convolving source power with a learnable hemodynamic response function (HRF) kernel.
+      </h2>
+      <img id="teaser" src="./static/imgs/model_structure.png"
+                type="image/jpg">
+      </img>
+    </div>
+  </div>
+</section>
+<!--/ Model Architecture. -->
+
+<!--Evaluation-->
+<section class="hero teaser">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3", style="margin-top: 60px;">Evaluation</h2>
+  </div>
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+
+  <!-- Swiper HTML Block -->
+  <div class="swiper mySwiper" style="width: 800px; margin: 20px auto;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 01 (In Main Paper)</p>
+          <!-- <p class="caption"><b>Time and Accuracy vs Number of Samples</b>: On the left, we plot the time used for generator and verifier w.r.t the number of generated samples; On the right, we plot the  failure rate w.r.t sample count, comparing HAVE with an oracle verifier (which always selects the best sample from a given batch).</p> -->
+          <img src="./static/imgs/model_prediction.png" alt="Slide 1" width="80%"/>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 02 (In Appendix)</p>
+          <!-- <p class="caption"><b>Failure History Analysis</b>: Actions matching failed modes receive lower verifier scores, leading to nearly 100% of top-selected actions avoiding repeated failures, demonstrating HAVE’s ability to learn from failure histories.</p> -->
+          <img src="./static/imgs/model_prediction.png" alt="Slide 2" width="80%"/>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 03 (In Appendix)</p>
+          <!-- <p class="caption has-text-left"><b>Success History Analysis</b>: Given a successful history, the verifier accurately identifies better grasp points and directions under severe occlusion, demonstrating its ability to generalize from past successes even with large viewpoint changes.</p> -->
+          <img src="./static/imgs/model_prediction.png" alt="Slide 4" width="80%"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional navigation and pagination -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Initialization -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</section>
+<!--Evaluation-->
+
+
+<!--Evaluation (Video)-->
+<section class="hero teaser">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3", style="margin-top: 60px;">Word-Locked Cascades of Source Activities</h2>
+  </div>
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+
+  <!-- Swiper HTML Block -->
+  <div class="swiper mySwiper" style="width: 800px; margin: 20px auto;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 01 (In Main Paper)</p>
+          <!-- <p class="caption"><b>Time and Accuracy vs Number of Samples</b>: On the left, we plot the time used for generator and verifier w.r.t the number of generated samples; On the right, we plot the  failure rate w.r.t sample count, comparing HAVE with an oracle verifier (which always selects the best sample from a given batch).</p> -->
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/A_word.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 02 (In Appendix)</p>
+          <!-- <p class="caption"><b>Failure History Analysis</b>: Actions matching failed modes receive lower verifier scores, leading to nearly 100% of top-selected actions avoiding repeated failures, demonstrating HAVE’s ability to learn from failure histories.</p> -->
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/A_word.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 03 (In Appendix)</p>
+          <!-- <p class="caption has-text-left"><b>Success History Analysis</b>: Given a successful history, the verifier accurately identifies better grasp points and directions under severe occlusion, demonstrating its ability to generalize from past successes even with large viewpoint changes.</p> -->
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/A_word.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional navigation and pagination -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Initialization -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</section>
+<!--Evaluation-->
+
+
+<!--Evaluation (2 Videos)-->
+<section class="hero teaser">
+  <div class="columns is-centered has-text-centered">
+    <h2 class="title is-3", style="margin-top: 60px;">Word Surprisal Effect</h2>
+  </div>
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+
+  <!-- Swiper HTML Block -->
+  <div class="swiper mySwiper" style="width: 800px; margin: 20px auto;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 01 (In Main Paper)</p>
+          <!-- <p class="caption"><b>Time and Accuracy vs Number of Samples</b>: On the left, we plot the time used for generator and verifier w.r.t the number of generated samples; On the right, we plot the  failure rate w.r.t sample count, comparing HAVE with an oracle verifier (which always selects the best sample from a given batch).</p> -->
+          <video id="matting-video" controls playsinline width="50%">
+            <source src="./static/videos/output.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 02 (In Appendix)</p>
+          <!-- <p class="caption"><b>Failure History Analysis</b>: Actions matching failed modes receive lower verifier scores, leading to nearly 100% of top-selected actions avoiding repeated failures, demonstrating HAVE’s ability to learn from failure histories.</p> -->
+          <video id="matting-video" controls playsinline width="50%">
+            <source src="./static/videos/output.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <p class="subtitle has-text-centered">Participant 03 (In Appendix)</p>
+          <!-- <p class="caption has-text-left"><b>Success History Analysis</b>: Given a successful history, the verifier accurately identifies better grasp points and directions under severe occlusion, demonstrating its ability to generalize from past successes even with large viewpoint changes.</p> -->
+          <video id="matting-video" controls playsinline width="50%">
+            <source src="./static/videos/output.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional navigation and pagination -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Initialization -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</section>
+<!--Evaluation-->
 
 
 <footer class="footer">
