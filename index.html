@@ -188,7 +188,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            Transformer-based MEG-fMRI Encoding Model with High Spatial and Temporal Resolution.
+            Transformer-based MEG-fMRI Encoding Model with High Spatial and Temporal Resolution
           </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -225,7 +225,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Current non-invasive neuroimaging techniques trade off between spatial resolution and temporal resolution. While magnetoencephalography (MEG) can capture rapid neural dynamics and functional magnetic resonance imaging (fMRI) can spatially localize brain activity, a unified picture that preserves both high resolutions remains elusive. We introduce a transformer-based encoding framework that combines MEG and fMRI from two naturalistic speech comprehension experiments with identical stimuli to estimate latent cortical source responses with high spatio-temporal resolution. Participants listened passively to more than 7h of narrative stories while whole-head MEG was recorded; each also completed a 3T fMRI scan on repeated presentations of one anchor story. For the remaining stories, we projected an open fMRI dataset collected on identical stimuli onto each participant's cortical surface using surface-based alignment and vertex-wise ridge regression. We built a transformer-based encoding model whose latent layer represents our estimates of reconstructed cortical sources. A sliding-window self-attention enables the model to leverage the preceding 10s of stimulus features. The network is trained end-to-end with a joint MEG and fMRI loss. On held-out stories, our model performs on par with single-modality regression-based methods while simultaneously offering high spatial and temporal resolution. Simulation experiments show more accurate source recovery than the classical minimum norm estimation approach. Training on real data reveals word-locked source activities and cortical dynamics of word surprisal effect. By integrating the power of large naturalistic experiments, MEG, and fMRI with a transformer-based encoding model, we propose a practical route to millisecond-and-millimeter brain mapping.
+            Current non-invasive neuroimaging techniques trade off between spatial resolution and temporal resolution. While magnetoencephalography (MEG) can capture rapid neural dynamics and functional magnetic resonance imaging (fMRI) can spatially localize brain activity, a unified picture that preserves both high resolutions remains elusive. 
+          </p>
+          <p>
+            We introduce a transformer-based encoding framework that combines MEG and fMRI from two naturalistic speech comprehension experiments with identical stimuli to estimate latent cortical source responses with high spatio-temporal resolution. Participants listened passively to more than 7h of narrative stories while whole-head MEG was recorded; each also completed a 3T fMRI scan on repeated presentations of one anchor story. For the remaining stories, we projected an open fMRI dataset collected on identical stimuli onto each participant's cortical surface using surface-based alignment and vertex-wise ridge regression. We built a transformer-based encoding model whose latent layer represents our estimates of reconstructed cortical sources. A sliding-window self-attention enables the model to leverage the preceding 10s of stimulus features. The network is trained end-to-end with a joint MEG and fMRI loss.
+          </p>
+          <p>
+            On held-out stories, our model performs on par with single-modality regression-based methods while simultaneously offering high spatial and temporal resolution. Simulation experiments show more accurate source recovery than the classical minimum norm estimation approach. Training on real data reveals word-locked source activities and cortical dynamics of word surprisal effect. By integrating the power of large naturalistic experiments, MEG, and fMRI with a transformer-based encoding model, we propose a practical route to millisecond-and-millimeter brain mapping.
           </p>
         </div>
       </div>
@@ -260,7 +266,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="content has-text-left">
-        Predictive performance on MEG and fMRI. Our model is comparable to single-modality ridge models which serve as a ceiling. Top: performance on the MEG helmet. Both magnetometer and gradiometer sensors above the temporal lobe are predicted.  Bottom: performance on the source BOLD signal, shown on the inflated surface. large parts of bilateral temporal and frontal are predicted.
+        Predictive performance on MEG and fMRI. Our model is comparable to single-modality ridge models which serve as a ceiling.
       </h2>
     </div>
   </div>
@@ -278,21 +284,21 @@
         <div class="slide-content">
           <p class="subtitle has-text-centered">Participant 01 (In Main Paper)</p>
           <!-- <p class="caption"><b>Time and Accuracy vs Number of Samples</b>: On the left, we plot the time used for generator and verifier w.r.t the number of generated samples; On the right, we plot the  failure rate w.r.t sample count, comparing HAVE with an oracle verifier (which always selects the best sample from a given batch).</p> -->
-          <img src="./static/imgs/model_prediction.png" alt="Slide 1" width="80%"/>
+          <img src="./static/imgs/A_model_prediction.png" alt="Slide 1" width="80%"/>
         </div>
       </div>
       <div class="swiper-slide">
         <div class="slide-content">
           <p class="subtitle has-text-centered">Participant 02 (In Appendix)</p>
           <!-- <p class="caption"><b>Failure History Analysis</b>: Actions matching failed modes receive lower verifier scores, leading to nearly 100% of top-selected actions avoiding repeated failures, demonstrating HAVE’s ability to learn from failure histories.</p> -->
-          <img src="./static/imgs/model_prediction.png" alt="Slide 2" width="80%"/>
+          <img src="./static/imgs/C_model_prediction.png" alt="Slide 2" width="80%"/>
         </div>
       </div>
       <div class="swiper-slide">
         <div class="slide-content">
           <p class="subtitle has-text-centered">Participant 03 (In Appendix)</p>
           <!-- <p class="caption has-text-left"><b>Success History Analysis</b>: Given a successful history, the verifier accurately identifies better grasp points and directions under severe occlusion, demonstrating its ability to generalize from past successes even with large viewpoint changes.</p> -->
-          <img src="./static/imgs/model_prediction.png" alt="Slide 4" width="80%"/>
+          <img src="./static/imgs/D_model_prediction.png" alt="Slide 4" width="80%"/>
         </div>
       </div>
     </div>
@@ -310,10 +316,6 @@
   <script>
     var swiper = new Swiper(".mySwiper", {
       loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -337,7 +339,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="content has-text-left">
-        Cortical source activities after word onset estimated by our model on real data. Here we focus on 14 common nouns from all stories, with a total of 854 occurrences. The cascade starts from the temporal lobe at around 180ms, spreads and peaks at around 240ms. Activation then travels to and persists in the Broca's area and the temporal pole, while the activation in other areas quickly fade away.
+        Cortical source activities after word onset, estimated by our model. Here we show the average of 14 common nouns that appear 854 times in total.
       </h2>
     </div>
   </div>
@@ -366,7 +368,7 @@
           <p class="subtitle has-text-centered">Participant 02 (In Appendix)</p>
           <!-- <p class="caption"><b>Failure History Analysis</b>: Actions matching failed modes receive lower verifier scores, leading to nearly 100% of top-selected actions avoiding repeated failures, demonstrating HAVE’s ability to learn from failure histories.</p> -->
           <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/A_word.mp4"
+            <source src="./static/videos/C_word.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -376,7 +378,7 @@
           <p class="subtitle has-text-centered">Participant 03 (In Appendix)</p>
           <!-- <p class="caption has-text-left"><b>Success History Analysis</b>: Given a successful history, the verifier accurately identifies better grasp points and directions under severe occlusion, demonstrating its ability to generalize from past successes even with large viewpoint changes.</p> -->
           <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/A_word.mp4"
+            <source src="./static/videos/D_word.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -419,7 +421,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="content has-text-left">
-        Our model recovers the word surprisal effects. We calculate the Pearson r between the word's surprisal (negative log probability predicted by GPT-2) and the predicted signal after the word onset at each time point and each source or MEG sensor. For sources, we plot the FDR-corrected p-value (with a threshold of 1e-50) and the direction of correlation (positive as red and negative as blue). At around 180ms, predicted sensors on both the left temporal lobe (LH temporal) and the right temporal lobe (RH temporal) show a negative peak in correlation; cortical sources show distributed negative correlation in temporal cortex. From 300ms to 500ms, LH temporal sensors show another negative peak, while source activities indicate negative correlation in ventral anterior temporal lobe (ATL) and positive correlation in left inferior frontal gyrus (lIFG).
+        Our model recovers the word surprisal effects. We calculate the Pearson r between the word's surprisal (negative log probability predicted by GPT-2) and the predicted signal after the word onset at each time point and each source or MEG sensor, for 13627 nouns. The videos show the FDR-corrected p-values.
       </h2>
     </div>
   </div>
@@ -438,7 +440,7 @@
           <p class="subtitle has-text-centered">Participant 01 (In Main Paper)</p>
           <!-- <p class="caption"><b>Time and Accuracy vs Number of Samples</b>: On the left, we plot the time used for generator and verifier w.r.t the number of generated samples; On the right, we plot the  failure rate w.r.t sample count, comparing HAVE with an oracle verifier (which always selects the best sample from a given batch).</p> -->
           <video id="matting-video" controls playsinline width="50%">
-            <source src="./static/videos/output.mp4"
+            <source src="./static/videos/a_output.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -448,7 +450,7 @@
           <p class="subtitle has-text-centered">Participant 02 (In Appendix)</p>
           <!-- <p class="caption"><b>Failure History Analysis</b>: Actions matching failed modes receive lower verifier scores, leading to nearly 100% of top-selected actions avoiding repeated failures, demonstrating HAVE’s ability to learn from failure histories.</p> -->
           <video id="matting-video" controls playsinline width="50%">
-            <source src="./static/videos/output.mp4"
+            <source src="./static/videos/c_output.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -458,7 +460,7 @@
           <p class="subtitle has-text-centered">Participant 03 (In Appendix)</p>
           <!-- <p class="caption has-text-left"><b>Success History Analysis</b>: Given a successful history, the verifier accurately identifies better grasp points and directions under severe occlusion, demonstrating its ability to generalize from past successes even with large viewpoint changes.</p> -->
           <video id="matting-video" controls playsinline width="50%">
-            <source src="./static/videos/output.mp4"
+            <source src="./static/videos/d_output.mp4"
                     type="video/mp4">
           </video>
         </div>
