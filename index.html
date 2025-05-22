@@ -204,14 +204,11 @@
 <!-- Teaser. -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <!-- <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3", style="margin-top: 60px;">Model Architecture</h2>
-    </div> -->
     <div class="hero-body">
       <img id="teaser" src="./static/imgs/teaser.png"
-                type="image/jpg">
+                type="image/jpg" width="80%" style="display: block; margin: 0 auto;">
       </img>
-      <h2 class="subtitle has-text-left">
+      <h2 class="context has-text-left">
         Our work integrates the millisecond-level temporal precision of MEG with the millimeter-scale spatial specificity of fMRI to reconstruct cortical source activity at a high spatiotemporal resolution.
       </h2>
     </div>
@@ -248,7 +245,7 @@
         Feature streams enter the network and traverse two transformer layers before being projected into the cortical source space by a source projection layer. The MEG head generates predicted sensor signals by multiplying source activity with a pre-computed lead-field matrix (dashed arrows denote that this mapping is not learned). The fMRI head produces predicted BOLD responses by convolving source power with a learnable hemodynamic response function (HRF) kernel.
       </h2>
       <img id="teaser" src="./static/imgs/model_structure.png"
-                type="image/jpg">
+                type="image/jpg" width="90%" style="display: block; margin: 0 auto;">
       </img>
     </div>
   </div>
@@ -259,6 +256,13 @@
 <section class="hero teaser">
   <div class="columns is-centered has-text-centered">
     <h2 class="title is-3", style="margin-top: 60px;">Evaluation</h2>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="content has-text-left">
+        Predictive performance on MEG and fMRI. Our model is comparable to single-modality ridge models which serve as a ceiling. Top: performance on the MEG helmet. Both magnetometer and gradiometer sensors above the temporal lobe are predicted.  Bottom: performance on the source BOLD signal, shown on the inflated surface. large parts of bilateral temporal and frontal are predicted.
+      </h2>
+    </div>
   </div>
 
   <!-- Swiper CSS -->
@@ -328,6 +332,14 @@
 <section class="hero teaser">
   <div class="columns is-centered has-text-centered">
     <h2 class="title is-3", style="margin-top: 60px;">Word-Locked Cascades of Source Activities</h2>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="content has-text-left">
+        Cortical source activities after word onset estimated by our model on real data. Here we focus on 14 common nouns from all stories, with a total of 854 occurrences. The cascade starts from the temporal lobe at around 180ms, spreads and peaks at around 240ms. Activation then travels to and persists in the Broca's area and the temporal pole, while the activation in other areas quickly fade away.
+      </h2>
+    </div>
   </div>
 
   <!-- Swiper CSS -->
@@ -402,6 +414,14 @@
 <section class="hero teaser">
   <div class="columns is-centered has-text-centered">
     <h2 class="title is-3", style="margin-top: 60px;">Word Surprisal Effect</h2>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="content has-text-left">
+        Our model recovers the word surprisal effects. We calculate the Pearson r between the word's surprisal (negative log probability predicted by GPT-2) and the predicted signal after the word onset at each time point and each source or MEG sensor. For sources, we plot the FDR-corrected p-value (with a threshold of 1e-50) and the direction of correlation (positive as red and negative as blue). At around 180ms, predicted sensors on both the left temporal lobe (LH temporal) and the right temporal lobe (RH temporal) show a negative peak in correlation; cortical sources show distributed negative correlation in temporal cortex. From 300ms to 500ms, LH temporal sensors show another negative peak, while source activities indicate negative correlation in ventral anterior temporal lobe (ATL) and positive correlation in left inferior frontal gyrus (lIFG).
+      </h2>
+    </div>
   </div>
 
   <!-- Swiper CSS -->
